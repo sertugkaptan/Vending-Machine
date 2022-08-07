@@ -56,6 +56,7 @@ public class MakeDrinkCommandTest {
                 {new InputArguments("chocolate", (float) 0.1, 1, false), "The chocolate costs 0.6."},
 
                 {new InputArguments("foo", (float) 0.1, 1, false), "The drink type should be tea, coffee or chocolate."},
+                {new InputArguments("coffee",(float)0.6,2,true),"You have ordered a coffee extra hot with 2 sugars (stick included)"}
         };
     }
 
