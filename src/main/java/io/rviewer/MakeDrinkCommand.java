@@ -33,7 +33,7 @@ public class MakeDrinkCommand implements Command {
     if (isValid) {
       Float money = input.getParameter("money");
 
-      out.run(checkPriceOfType(drinkType.toUpperCase(),money));
+      out.run(checkPriceOfType(drinkType,money));
 
       Integer sugarsNo = input.getParameter("sugar");
       String message;
