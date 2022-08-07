@@ -1,8 +1,28 @@
 package io.rviewer;
 
 import java.util.Arrays;
+import io.rviewer.Drink;
+
 
 public class MakeDrinkCommand implements Command {
+  public String checkPrice(Drink drink, Float money){
+    String res = new String();
+    if(drink.getPrice() > money){
+      res =  "The " + drink.getDrinkName() + " costs "  + drink.getPrice() + ".";
+    }
+    return res;
+  }
+
+  public String checkPriceOfType(String drinkType, Float money){
+    String res = new String();
+    if(drinkType.toUpperCase() =="TEA")
+      res = checkPrice(new Tea(),money);
+    if(drinkType.toUpperCase() == "COFFEE")
+      res = checkPrice(new Coffee(),money);
+    if (drinkType.toUpperCase() == "CHOCOLATE")
+      res = checkPrice(new Chocolate(),money);
+    return res;
+  }
 
   @Override
   public void execute(Input input, Output out) {
@@ -13,33 +33,11 @@ public class MakeDrinkCommand implements Command {
     if (isValid) {
       Float money = input.getParameter("money");
 
-      switch (drinkType.toUpperCase()) {
-        case "TEA":
-          double price = 0.4;
-          if (money < price) {
-            out.run("The tea costs " + price + ".");
-            return;
-          }
-          break;
-        case "COFFEE":
-          price = 0.5;
-          if (money < price) {
-            out.run("The coffee costs " + price + ".");
-            return;
-          }
-          break;
-        case "CHOCOLATE":
-          price = 0.6;
-          if (money < price) {
-            out.run("The chocolate costs " + price + ".");
-            return;
-          }
-          break;
-      }
+      out.run(checkPriceOfType(drinkType.toUpperCase(),money));
 
       Integer sugarsNo = input.getParameter("sugar");
-
       String message;
+
       if (sugarsNo >= 0 && sugarsNo <= 2) {
         message = "You have ordered a " + drinkType;
 
