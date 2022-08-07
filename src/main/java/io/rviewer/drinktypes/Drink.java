@@ -1,4 +1,4 @@
-package io.rviewer;
+package io.rviewer.drinktypes;
 
 public class Drink{
     private String drinkName;
@@ -9,15 +9,8 @@ public class Drink{
         return drinkName;
     }
 
-    public void setDrinkName(String newName){
-        drinkName = newName;
-    }
 
     public Double getPrice(){
         return price;
-    }
-
-    public void setPrice(String newPrice ){
-        drinkName = newPrice;
     }
 }

@@ -1,8 +1,7 @@
-package io.rviewer;
-import io.rviewer.Drink;
+package io.rviewer.drinktypes;
 
 public class Tea extends Drink {
-    protected String drinkName = "Tea";
+    protected String drinkName = "tea";
     protected Double price = 0.4;
 
     public String getDrinkName(){

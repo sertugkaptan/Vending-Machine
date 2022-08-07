@@ -1,9 +1,7 @@
-package io.rviewer;
-
-import io.rviewer.Drink;
+package io.rviewer.drinktypes;
 
 public class Coffee extends Drink {
-    protected String drinkName = "Coffee";
+    protected String drinkName = "coffee";
     protected Double price = 0.5;
 
     public String getDrinkName(){

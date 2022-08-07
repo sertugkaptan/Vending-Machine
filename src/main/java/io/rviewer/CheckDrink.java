@@ -1,5 +1,10 @@
 package io.rviewer;
 
+import io.rviewer.drinktypes.Chocolate;
+import io.rviewer.drinktypes.Coffee;
+import io.rviewer.drinktypes.Drink;
+import io.rviewer.drinktypes.Tea;
+
 public class CheckDrink {
     public String checkPrice(Drink drink, Float money){
         String res = new String();
@@ -11,11 +16,11 @@ public class CheckDrink {
 
     public String checkPriceOfDrinkType(String drinkType, Float money){
         String res = new String();
-        if(drinkType.toUpperCase() =="TEA")
+        if(drinkType.toUpperCase().equals("TEA"))
             res = checkPrice(new Tea(),money);
-        if(drinkType.toUpperCase() == "COFFEE")
+        else if(drinkType.toUpperCase().equals("COFFEE"))
             res = checkPrice(new Coffee(),money);
-        if (drinkType.toUpperCase() == "CHOCOLATE")
+        else if (drinkType.toUpperCase().equals("CHOCOLATE"))
             res = checkPrice(new Chocolate(),money);
         return res;
     }
