@@ -35,6 +35,9 @@ public class MakeDrinkCommandTest {
     ) {
         new MakeDrinkCommand().execute(input, output);
         drinksBought.moneyEarned(input.getParameter("drinkType"));
+        System.out.println("Tea: " + drinksBought.teaNo);
+        System.out.println("Coffee: " + drinksBought.coffeeNo);
+        System.out.println("Chocolate: " + drinksBought.chocolateNo);
         verify(output, times(1)).run(expectedMessage);
 
     }
