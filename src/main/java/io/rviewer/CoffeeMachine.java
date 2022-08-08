@@ -31,7 +31,6 @@ public class CoffeeMachine implements Callable<Void> {
 
   @Override
   public Void call() {
-
     new MakeDrinkCommand().execute(
         new InputArguments(drinkType, money, sugar, extraHot),
         new CliOutput()

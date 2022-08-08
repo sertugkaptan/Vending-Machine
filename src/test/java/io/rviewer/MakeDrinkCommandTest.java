@@ -21,6 +21,7 @@ public class MakeDrinkCommandTest {
 
     @Mock
     private Output output;
+    static DrinksBought drinksBought = new DrinksBought();
 
     @Before
     public void setUp() {
@@ -33,8 +34,9 @@ public class MakeDrinkCommandTest {
             Input input, String expectedMessage
     ) {
         new MakeDrinkCommand().execute(input, output);
-
+        drinksBought.moneyEarned(input.getParameter("drinkType"));
         verify(output, times(1)).run(expectedMessage);
+
     }
 
     @DataProvider
